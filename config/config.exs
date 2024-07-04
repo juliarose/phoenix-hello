@@ -19,6 +19,7 @@ config :hello, HelloWeb.Endpoint,
     formats: [html: HelloWeb.ErrorHTML, json: HelloWeb.ErrorJSON],
     layout: false
   ],
+  http: [port: System.get_env("PORT") || 4010],
   pubsub_server: Hello.PubSub,
   live_view: [signing_salt: "kfnKQ2oA"]
 

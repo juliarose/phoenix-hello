@@ -1,4 +1,4 @@
-defmodule Hello.User do
+defmodule Hello.Users.User do
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -6,7 +6,6 @@ defmodule Hello.User do
     field :name, :string
     field :number_of_pets, :integer
 
-    has_one :avatar, Hello.Cat
     timestamps(type: :utc_datetime)
   end
 
@@ -15,6 +14,5 @@ defmodule Hello.User do
     user
     |> cast(attrs, [:name, :number_of_pets])
     |> validate_required([:name, :number_of_pets])
-    |> validate_length(:name, min: 2)
   end
 end

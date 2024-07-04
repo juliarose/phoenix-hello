@@ -1,0 +1,9 @@
+defmodule Hello.Repo.Migrations.CatBelongsToUser do
+  use Ecto.Migration
+
+  def change do
+    alter table(:cats) do
+      add :user_id, references(:users)
+    end
+  end
+end
