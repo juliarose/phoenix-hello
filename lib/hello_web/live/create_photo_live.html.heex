@@ -1,0 +1,44 @@
+
+<div class="em-gradient flex items-center justify-center">
+  <h1 class="font-brand font-bold text-3xl text-white">
+    Upload a new photo.
+  </h1>
+</div>
+
+<.form
+  for={@form}
+  phx-submit="save"
+  phx-change="validate"
+>
+  <div class="justify center px-28 w-full space-y-4 mb-10">
+    <.input
+      field={@form[:title]}
+      placeholder="Photo title..."
+      autocomplete="off"
+      phx-debounce="blur"
+    />
+    
+    <div class="flex items-center w-[300px] text-xs text-white">
+      <.live_file_input
+        upload={@uploads[:image]}
+      />
+    </div>
+    
+    <.input
+      field={@form[:description]}
+      class="w-full rounded-b-md"
+      type="textarea"
+      placeholder="Photo description (optional)"
+      autocomplete="off"
+      phx-debounce="blur"
+    />
+    <div class="flex justify-end">
+      <button
+        type="submit"
+        class="create-button rounded-md border p-2"
+      >
+        Upload photo
+      </button>
+    </div>
+  </div>
+</.form>

@@ -15,6 +15,30 @@ module.exports = {
     extend: {
       colors: {
         brand: "#FD4F00",
+        emDark: {
+          dark: "#1A1A1A",
+          DEFAULT: "#333333",
+          light: "#4D4D4D",
+        },
+        emCoral: {
+          dark: "#FF4D4D",
+          DEFAULT: "#FF6666",
+          light: "#FF8080",
+        },
+        emSeafoam: {
+          dark: "#00CC99",
+          DEFAULT: "#00FFB3",
+          light: "#33FFCC",
+        },
+      },
+      fontFamily: {
+        brand: ["Margarine", "Open Sans", "sans-serif"],
+        sans: ["Work Sans", "sans-serif"],
+      },
+      fontWeight: {
+        light: 300,
+        normal: 400,
+        bold: 700,
       }
     },
   },

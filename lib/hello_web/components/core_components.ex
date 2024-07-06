@@ -18,7 +18,7 @@ defmodule HelloWeb.CoreComponents do
 
   alias Phoenix.LiveView.JS
   import HelloWeb.Gettext
-
+  
   @doc """
   Renders a modal.
 

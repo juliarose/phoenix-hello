@@ -1,5 +1,67 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import url('https://fonts.googleapis.com/css2?family=Margarine&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* This file is for your main application CSS */
+
+.menu-item {
+    @apply block px-4 py-2 text-sm text-white font-sans font-normal;
+}
+
+.menu-item:hover {
+    @apply hover:text-emDark-light;
+}
+
+.em-gradient {
+    background: linear-gradient(to bottom, #FF4D4D 0%, #1A1A1A 100%);
+    height: 225px;
+}
+
+.dropdown-menu-arrow::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: calc(95% - 12px);
+    border-width: 0 5px 5px 5px;
+    border-color: transparent transparent #FFFFFF transparent;
+    border-style: solid;
+}
+
+.round-image-padding {
+    border-radius: 50%;
+    border: 1.5px solid #FFFFFF;
+    padding: 4px;
+}
+
+.img-down-arrow::after {
+    content: "";
+    position: absolute;
+    right: -10px;
+    top: 45%;
+    transform: translateY(-50%);
+    border-width: 3px 3px 0 3px;
+    border-color: #FFFFFF transparent transparent transparent;
+    border-style: solid;
+}
+
+form input[type="text"] {
+    @apply bg-emDark-dark font-sans font-normal text-white text-xs;
+}
+
+form input[type="text"]:focus {
+    @apply focus:outline-none focus:border-emCoral focus:ring-0;
+}
+
+.textarea {
+    @apply bg-emDark-dark font-sans font-normal text-white text-xs h-[240px] resize-none;
+}
+
+.create-button {
+    @apply bg-emSeafoam font-sans font-normal text-black text-base rounded-b-md rounded-t-md;
+}
+
+.create-button:hover {
+    @apply hover:bg-emSeafoam-dark text-emDark-light;
+}

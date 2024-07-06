@@ -32,6 +32,13 @@ config :hello, HelloWeb.Endpoint,
 # at the `config/runtime.exs`.
 config :hello, Hello.Mailer, adapter: Swoosh.Adapters.Local
 
+# Configure the image storage
+config :waffle,
+  storage: Waffle.Storage.Local,
+  # Edit this path to match your storage directory
+  storage_dir_prefix: "priv/static",
+  storage_dir: "images"
+
 # Configure esbuild (the version is required)
 config :esbuild,
   version: "0.17.11",
