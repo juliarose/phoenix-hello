@@ -36,3 +36,6 @@ npm-debug.log
 /assets/node_modules/
 
 .env
+
+# Ignore the uploads directory
+/priv/static/uploads/
