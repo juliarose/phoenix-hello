@@ -16,7 +16,7 @@ defmodule HelloWeb.Router do
   pipeline :api do
     plug :accepts, ["json"]
   end
-
+  
   scope "/", HelloWeb do
     pipe_through :browser
 
@@ -69,6 +69,7 @@ defmodule HelloWeb.Router do
     live_session :require_authenticated_user,
       on_mount: [{HelloWeb.UserAuth, :ensure_authenticated}] do
       live "/create", CreatePhotoLive
+      live "/photos", PhotoLive
       live "/users/settings", UserSettingsLive, :edit
       live "/users/settings/confirm_email/:token", UserSettingsLive, :confirm_email
     end

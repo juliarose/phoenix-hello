@@ -1,16 +1,16 @@
-defmodule Hello.Uploaders.ImageUploader do
+defmodule HelloWeb.Uploaders.ImageUploader do
   use Waffle.Definition
   use Waffle.Ecto.Definition
 
   @allowed_extensions ~w(.png .jpg .jpeg)
 
-  def storage_dir(_version, {_file, scope}) do
-    "uploads/photos/#{scope.id}"
+  def storage_dir(_version, {_file, _scope}) do
+    "uploads/photos"
   end
 
-  def filename(version, {file, post}) do
+  def filename(version, {file, photo}) do
     # It is desirable for this name to be unique
-    "#{file.file_name}_#{post.title}_#{version}"
+    "#{file.file_name}_#{photo.title}_#{version}"
   end
 
   def validate(_version, {file, _scope}) do

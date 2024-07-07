@@ -15,6 +15,19 @@
 //     import "some-package"
 //
 
+const Hooks = {};
+
+// Example hook - add it to an element using:
+// phx-hook="Hooked"
+//
+// The element must have an id attribute
+Hooks.Hooked = {
+  mounted() {
+    // This will log the element's text content to the console
+    console.log(this.el.textContent);
+  }
+};
+
 // Include phoenix_html to handle method=PUT/DELETE in forms and buttons.
 import "phoenix_html"
 // Establish Phoenix Socket and LiveView configuration.
@@ -25,7 +38,8 @@ import topbar from "../vendor/topbar"
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 let liveSocket = new LiveSocket("/live", Socket, {
   longPollFallbackMs: 2500,
-  params: {_csrf_token: csrfToken}
+  params: {_csrf_token: csrfToken},
+  hooks: Hooks
 })
 
 // Show progress bar on live navigation and form submits

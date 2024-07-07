@@ -36,13 +36,11 @@ defmodule HelloWeb.CreatePhotoLive do
 
   defp save_photo(socket, :save, photo_params) do
     case Photos.create_photo(socket.assigns.current_user, photo_params) do
-      {:ok, post} ->
-        notify_parent({:saved, post})
+      {:ok, photo} ->
+        changeset = Photos.change_photo(%Photo{})
+        socket = assign_form(socket, changeset)
 
-        {:noreply,
-         socket
-         |> put_flash(:info, "Photo created successfully")
-         |> push_patch(to: socket.assigns.patch)}
+        {:noreply, push_navigate(socket, to: ~p"/photos?#{[id: photo.id]}")}
 
       {:error, %Ecto.Changeset{} = changeset} ->
         {:noreply, assign_form(socket, changeset)}
@@ -52,6 +50,4 @@ defmodule HelloWeb.CreatePhotoLive do
   defp assign_form(socket, %Ecto.Changeset{} = changeset) do
     assign(socket, :form, to_form(changeset))
   end
-
-  defp notify_parent(msg), do: send(self(), {__MODULE__, msg})
 end

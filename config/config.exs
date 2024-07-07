@@ -37,7 +37,7 @@ config :waffle,
   storage: Waffle.Storage.Local,
   # Edit this path to match your storage directory
   storage_dir_prefix: "priv/static",
-  storage_dir: "images"
+  storage_dir: "uploads"
 
 # Configure esbuild (the version is required)
 config :esbuild,

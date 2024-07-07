@@ -1,0 +1,31 @@
+
+
+<div class="h-36 flex items-center justify-center">
+  <h1 class="font-brand font-bold text-3xl text-white">
+    <%= @photo.title %>
+  </h1>
+</div>
+<div class="justify center px-28 w-full space-y-4 mb-10">
+  <img
+      src={@photo_image_url}
+      alt={@photo.title}
+  />
+  <%= if @photo.description do %>
+    <p class="text-white text-xs">
+      <%= @photo.description %>
+    </p>
+  <% end %>
+  
+  <%= if @current_user.id == @photo.user_id do %>
+    <div class="flex justify-end">
+      <button
+        id="delete_photo_button"
+        class="text-xs font-normal text-white rounded-md border p-2"
+        phx-click={}
+        phx-hook="Hooked"
+      >
+        Delete
+      </button>
+    </div>
+  <% end %>
+</div>
