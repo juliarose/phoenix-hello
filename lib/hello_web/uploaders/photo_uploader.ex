@@ -1,4 +1,4 @@
-defmodule HelloWeb.Uploaders.ImageUploader do
+defmodule HelloWeb.Uploaders.PhotoUploader do
   use Waffle.Definition
   use Waffle.Ecto.Definition
 
@@ -14,10 +14,9 @@ defmodule HelloWeb.Uploaders.ImageUploader do
   end
 
   def validate(_version, {file, _scope}) do
-    file_extension =
-      file.file_name
-      |> Path.extname()
-      |> String.downcase()
+    file_extension =file.file_name
+    |> Path.extname()
+    |> String.downcase()
 
     Enum.member?(@allowed_extensions, file_extension)
   end

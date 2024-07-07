@@ -4,8 +4,9 @@ defmodule Hello.Photos do
   """
 
   import Ecto.Query, warn: false
-  alias Hello.Repo
 
+  alias Hello.Repo
+  alias Hello.Accounts.User
   alias Hello.Photos.Photo
 
   @doc """
@@ -49,7 +50,7 @@ defmodule Hello.Photos do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_photo(user, attrs \\ %{}) do
+  def create_photo(%User{} = user, attrs \\ %{}) do
     user
     |> Ecto.build_assoc(:photos, attrs)
     |> Photo.changeset(attrs)
@@ -78,7 +79,7 @@ defmodule Hello.Photos do
   Deletes a photo.
 
   ## Examples
-
+      
       iex> delete_photo(photo)
       {:ok, %Photo{}}
 
@@ -86,8 +87,15 @@ defmodule Hello.Photos do
       {:error, %Ecto.Changeset{}}
 
   """
-  def delete_photo(%Photo{} = photo) do
-    Repo.delete(photo)
+  def delete_photo(%User{} = user, photo_id) do
+    photo = get_photo!(photo_id)
+
+    if user.id == photo.user_id do
+      Repo.delete(photo)
+      {:ok, photo}
+    else
+      {:error, :unauthorized}
+    end
   end
 
   @doc """

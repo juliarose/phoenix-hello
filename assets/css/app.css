@@ -14,11 +14,6 @@
     @apply hover:text-emDark-light;
 }
 
-.em-gradient {
-    background: linear-gradient(to bottom, #FF4D4D 0%, #1A1A1A 100%);
-    height: 225px;
-}
-
 .dropdown-menu-arrow::before {
     content: "";
     position: absolute;
@@ -56,12 +51,4 @@ form input[type="text"]:focus {
 
 .textarea {
     @apply bg-emDark-dark font-sans font-normal text-white text-xs h-[240px] resize-none;
-}
-
-.create-button {
-    @apply bg-emSeafoam font-sans font-normal text-black text-base rounded-b-md rounded-t-md;
-}
-
-.create-button:hover {
-    @apply hover:bg-emSeafoam-dark text-emDark-light;
 }

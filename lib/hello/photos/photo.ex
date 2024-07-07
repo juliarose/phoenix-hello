@@ -7,7 +7,7 @@ defmodule Hello.Photos.Photo do
   schema "photos" do
     field :title, :string
     field :description, :string
-    field :image, HelloWeb.Uploaders.ImageUploader.Type
+    field :image, HelloWeb.Uploaders.PhotoUploader.Type
     belongs_to :user, Hello.Accounts.User
 
     timestamps(type: :utc_datetime)

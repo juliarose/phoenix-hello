@@ -1,15 +1,19 @@
 
-
-<div class="h-36 flex items-center justify-center">
-  <h1 class="font-brand font-bold text-3xl text-white">
-    <%= @photo.title %>
-  </h1>
-</div>
-<div class="justify center px-28 w-full space-y-4 mb-10">
+<div class="justify center pt-12 px-28 w-full mb-10 pt-16 space-y-4">
+  <div class="flex ">
+    <h1 class="flex-1 font-brand font-bold text-3xl text-white">
+      <%= @photo.title %>
+    </h1>
+    
+    <div class="font-sans font-normal text-xs text-white text-right flex items-end">
+        <%= @photo.relative_time %>
+    </div>
+  </div>
   <img
       src={@photo_image_url}
       alt={@photo.title}
   />
+  
   <%= if @photo.description do %>
     <p class="text-white text-xs">
       <%= @photo.description %>
@@ -21,8 +25,8 @@
       <button
         id="delete_photo_button"
         class="text-xs font-normal text-white rounded-md border p-2"
-        phx-click={}
-        phx-hook="Hooked"
+        phx-click="delete"
+        phx-value-id={@photo.id}
       >
         Delete
       </button>
